@@ -1,23 +1,16 @@
-<html>
-    <head>
-        <title>Puchie Blog</title>
-    </head>
-<body>
-    <div>
-        <h1><a href="/">Puchie Blog</a></h1>
-    </div>
-    <p>Hi There!</p>
-    <p>It works!</p>
-{% for post in posts %}
-    <div>
-        <p>published: 09.07.2019, 18:00</p>
-        <h2><a href="">My first post</a></h2>
-        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
 
-        <p>published: 08.09.2017, 15:00</p>
-        <h2><a href="">My secong post</a></h2>
-        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-    </div>
-        {% endfor %}
-</body>
-</html>
+        {% extends 'blog/base.html' %}    
+        
+                {% block content %}
+                    {% for post in posts %}
+                     <div class="post">
+                        <p>published: 09.07.2019, 18:00</p>
+                        <h1><a href="{% url 'post_detail' pk=post.pk %}">My first post</a></h1>
+                        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+                        <p>published: 08.09.2017, 15:00</p>
+                        <h1><a href="{% url 'post_detail' pk=post.pk %}">My secong post</a></h1>
+                        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
+                    </div>
+                    {% endfor %}
+                {% endblock %}
